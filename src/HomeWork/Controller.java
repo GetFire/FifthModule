@@ -42,8 +42,14 @@ public class Controller {
     }
 
     public Room[] check(API api1, API api2) {
-        Room[] checked = new Room[10];
-        return checked;
+
+        Room[] Ch = new Room[0];
+        int a;
+        for (int i = 0; i < 23; i++) {
+
+        }
+
+        return Ch;
     }
 
 
