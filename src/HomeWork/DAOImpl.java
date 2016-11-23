@@ -24,4 +24,10 @@ public class DAOImpl implements DAO {
         System.out.println("Результат поиска по ID"+id);
         return null;
     }
+
+    @Override
+    public Room[] getAll() {
+
+        return new Room[0];
+    }
 }

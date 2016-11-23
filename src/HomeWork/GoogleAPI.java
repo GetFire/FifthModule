@@ -3,19 +3,33 @@ package HomeWork;
 import java.util.Date;
 
 public class GoogleAPI implements API {
-    public Room[]rooms;
-    @Override
-    public Room[] findRooms(int price, int persons, String city, String hotel) {
-        return new Room[5];
-    }
+    public Room[] rooms;
+
+
     public GoogleAPI() {
         Date date = new Date();
-        rooms= new Room[5];
-        rooms[0] = new Room(2263647,900,12000,date,"Atlantis The Palm","Дубай");
-        rooms[1] = new Room(365552, 1500, 1300, date, "Burj Al Arab", "Дубай");
-        rooms[2] = new Room(963852741, 1200, 2000, date, "The Cosmopolitan", "Лас-Вегас");
-        rooms[3] = new Room(3654, 500, 1500, date, "The Venetian", "Макао, Китай");
-        rooms[4] = new Room(11110121, 600, 5000, date, "Resorts World", "Сентоза, Сингапур");
+        rooms = new Room[5];
+        rooms[0] = new Room(2263647, 200, 1, date, "Atlantis The Palm", "Дубай");
+        rooms[1] = new Room(365552, 250, 2, date, "Burj Al Arab", "Дубай");
+        rooms[2] = new Room(963852741, 150, 1, date, "The Cosmopolitan", "Лас-Вегас");
+        rooms[3] = new Room(22543, 150, 2, date, "Universal's Cabana Bay Beach Resort", "Орландо");
+        rooms[4] = new Room(11110121, 150, 3, date, "Resorts World", "Сентоза, Сингапур");
 
     }
+
+    @Override
+    public Room[] findRooms(int price, int persons, String city, String hotel) {
+        Room[] Google = new Room[0];
+        for (int i = 0; i < rooms.length; i++) {
+            if ((rooms[i].getPrice() == price) && (rooms[i].getPersons() == persons) && (rooms[i].getCityName().equals(city)) && (rooms[i].getHotelName().equals(hotel))) {
+                Room[] Same1 = new Room[Google.length + 1];
+                System.arraycopy(Google, 0, Same1, 0, Google.length);
+                Google = Same1;
+                Google[Google.length - 1] = rooms[i];
+            }
+        }
+        return Google;
+    }
+
+
 }
