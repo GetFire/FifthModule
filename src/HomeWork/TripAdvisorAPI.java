@@ -3,7 +3,7 @@ package HomeWork;
 import java.util.Date;
 
 public class TripAdvisorAPI implements API {
-    Room[]rooms;
+    public Room[]rooms;
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
         return new Room[5];
