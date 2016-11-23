@@ -3,7 +3,7 @@ package HomeWork;
 import java.util.Date;
 
 public class BookingComAPI implements API {
-     Room[] rooms;
+    Room[] rooms;
 
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
@@ -12,7 +12,7 @@ public class BookingComAPI implements API {
 
     public BookingComAPI() {
         Date date = new Date();
-        Room[]rooms = new Room[5];
+        rooms= new Room[5];
         rooms[0] = new Room(123, 150, 350, date, "Inturist", "Kyiv");
         rooms[1] = new Room(225, 150, 360, date, "Metalist", "Lviv");
         rooms[2] = new Room(36012, 250, 350, date, "KharkivPalace", "Kharkiv");
@@ -21,4 +21,3 @@ public class BookingComAPI implements API {
 
     }
 }
-
