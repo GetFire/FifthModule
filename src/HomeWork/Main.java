@@ -33,7 +33,12 @@ public class Main {
 
         System.out.println(Arrays.toString(sad2));
         System.out.println();
+        System.out.println("---------------Работаем с ДАО-----------------------------------");
 
+        Room[] DB=controller.DataBase;
+        //System.out.println(Arrays.toString(param3));
+       // DB[0]=controller.save(param3[2]);
+        System.out.println(Arrays.toString(DB));
 
     }
 }

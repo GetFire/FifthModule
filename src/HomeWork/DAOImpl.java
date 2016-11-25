@@ -1,7 +1,7 @@
 package HomeWork;
 
 public class DAOImpl implements DAO {
-    Room[] DataBase = new Room[10];
+    public Room[] DataBase = new Room[10];
 
     @Override
     public Room save(Room room) {

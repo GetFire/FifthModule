@@ -1,8 +1,9 @@
 package HomeWork;
 
 
-public class Controller {
+public class Controller extends DAOImpl {
     public API[] apis = {new BookingComAPI(), new TripAdvisorAPI(), new GoogleAPI()};
+
     //public API[] apis = new API[3];
 
 //    public Controller(){
