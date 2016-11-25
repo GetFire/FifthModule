@@ -30,6 +30,9 @@ public class GoogleAPI implements API {
         }
         return Google;
     }
-
+    @Override
+    public Room[] getAll() {
+        return this.rooms;
+    }
 
 }

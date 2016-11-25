@@ -29,4 +29,9 @@ public class TripAdvisorAPI implements API {
         }
         return Trip;
     }
+
+    @Override
+    public Room[] getAll() {
+        return this.rooms;
+    }
 }

@@ -30,4 +30,9 @@ public class BookingComAPI implements API {
         }
         return Booking;
     }
+
+    @Override
+    public Room[] getAll() {
+        return this.rooms;
+    }
 }
