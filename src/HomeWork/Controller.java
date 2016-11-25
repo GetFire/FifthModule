@@ -3,6 +3,15 @@ package HomeWork;
 
 public class Controller {
     public API[] apis = {new BookingComAPI(), new TripAdvisorAPI(), new GoogleAPI()};
+    //public API[] apis = new API[3];
+
+//    public Controller(){
+//        API[] apis = {new BookingComAPI(), new TripAdvisorAPI(), new GoogleAPI()};
+//    }
+
+    public API[] getApis() {
+        return apis;
+    }
 
     public Room[] requstRooms(int price, int persons, String city, String hotel) {
         Room[] DB;
@@ -42,14 +51,17 @@ public class Controller {
     }
 
     public Room[] check(API api1, API api2) {
-
-        Room[] Ch = new Room[0];
-        int a;
-        for (int i = 0; i < 23; i++) {
-
+        Room[] DataBase = new Room[5];
+        Room[] same1 = api1.getAll();
+        Room[] same2 = api2.getAll();
+        for (int i = 0; i < same1.length; i++) {
+            for (int j = 0; j < same2.length; j++) {
+                if (same1[i].equals(same2[j])) {
+                    DataBase[i] = same1[i];
+                }
+            }
         }
-
-        return Ch;
+        return DataBase;
     }
 
 
