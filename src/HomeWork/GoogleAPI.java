@@ -19,16 +19,18 @@ public class GoogleAPI implements API {
 
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        Room[] Google = new Room[0];
+        Room[] google = new Room[0];
+        Date data1=new Date();
+        Room sravnenueKomnat= new Room(236544,price,persons,data1,hotel,city);
         for (int i = 0; i < rooms.length; i++) {
-            if ((rooms[i].getPrice() == price) && (rooms[i].getPersons() == persons) && (rooms[i].getCityName().equals(city)) && (rooms[i].getHotelName().equals(hotel))) {
-                Room[] Same1 = new Room[Google.length + 1];
-                System.arraycopy(Google, 0, Same1, 0, Google.length);
-                Google = Same1;
-                Google[Google.length - 1] = rooms[i];
+            if (rooms[i].equals(sravnenueKomnat)){
+                Room[] Same2 = new Room[google.length + 1];
+                System.arraycopy(google, 0, Same2, 0, google.length);
+                google = Same2;
+                google[google.length - 1] = rooms[i];
             }
         }
-        return Google;
+        return google;
     }
     @Override
     public Room[] getAll() {
