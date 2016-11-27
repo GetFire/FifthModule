@@ -4,7 +4,7 @@ public class DAOImpl implements DAO {
     private Room[] DataBase = new Room[10];
 
     public void setDataBase(Room dataBase) {
-        save(dataBase);
+        this.save(dataBase);
     }
 
     public Room[] getDataBase() {
@@ -42,9 +42,10 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public Room update(Room room) {
+    public Room update(long id) {
+        Room room=findById(id);
         for (int i = 0; i < DataBase.length; i++) {
-            if (DataBase[i].getId() == room.getId())
+            if (DataBase[i].getId() == id)
                 DataBase[i] = room;
             System.out.println(room.getHotelName() + " обновлено");
             break;
@@ -59,7 +60,7 @@ public class DAOImpl implements DAO {
         for (int i = 0; i < DataBase.length; i++) {
             if (DataBase[i].getId() == id)
                 return DataBase[i];
-            System.out.println("Результат поиска по ID" + DataBase[i].getHotelName());
+            System.out.println("Результат поиска по ID b " + DataBase[i].getHotelName());
             break;
         }
         System.out.println("По вашему запросу нет результатов");

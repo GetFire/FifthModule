@@ -39,10 +39,15 @@ public class Main {
         Room[] DB=controller.getDao().getDataBase();
         Date date=new Date();
         Room room = new Room(13321,456,4,date,"Киев","Киев");
-        Room room1 = new Room(13321,456,4,date,"Москва","Киев");
+        Room room1 = new Room(13361,455,5,date,"Москва","Киев");
         controller.getDao().save(room);
         controller.getDao().save(room1);
         System.out.println(Arrays.toString(DB));
+//        controller.getDao().delete(room);
+//        System.out.println(Arrays.toString(DB));
+        Room room3=controller.getDao().update(13361);
+
+
 //
 //
 //        Room[] Ex=new Room[2];
