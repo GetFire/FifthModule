@@ -1,25 +1,28 @@
 package HomeWork;
 
 public class DAOImpl implements DAO {
-    public Room[] DataBase = new Room[10];
+    private Room[] DataBase = new Room[10];
+
+    public void setDataBase(Room dataBase) {
+        save(dataBase);
+    }
+
+    public Room[] getDataBase() {
+        return DataBase;
+    }
 
     @Override
     public Room save(Room room) {
+
         for (int i = 0; i < DataBase.length; i++) {
+
             if (DataBase[i] == null) {
                 DataBase[i] = room;
                 break;
-            }
-            if (DataBase[i] != null) {
-                Room[] DataBase1 = new Room[DataBase.length + 1];
-                System.arraycopy(DataBase, 0, DataBase1, 0, DataBase.length);
-                DataBase = DataBase1;
-                DataBase[DataBase.length - 1] = room;
-                break;
+
             }
 
         }
-
         System.out.println(room.getHotelName() + " был сохранен в Базе Данных");
         return null;
     }
@@ -52,7 +55,7 @@ public class DAOImpl implements DAO {
 
     @Override
     public Room findById(long id) {
-        ;
+
         for (int i = 0; i < DataBase.length; i++) {
             if (DataBase[i].getId() == id)
                 return DataBase[i];

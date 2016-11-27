@@ -19,16 +19,18 @@ public class BookingComAPI implements API {
 
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-        Room[] Booking = new Room[0];
+        Room[] booking = new Room[0];
+        Date date=new Date();
+        Room compareRoom= new Room(236544,price,persons,date,hotel,city);
         for (int i = 0; i < rooms.length; i++) {
-            if ((rooms[i].getPrice() == price) && (rooms[i].getPersons() == persons) && (rooms[i].getCityName().equals(city)) && (rooms[i].getHotelName().equals(hotel))) {
-                Room[] Same1 = new Room[Booking.length + 1];
-                System.arraycopy(Booking, 0, Same1, 0, Booking.length);
-                Booking = Same1;
-                Booking[Booking.length - 1] = rooms[i];
+            if (rooms[i].equals(compareRoom)){
+                Room[] Same1 = new Room[booking.length + 1];
+                System.arraycopy(booking, 0, Same1, 0, booking.length);
+                booking = Same1;
+                booking[booking.length - 1] = rooms[i];
             }
         }
-        return Booking;
+        return booking;
     }
 
     @Override

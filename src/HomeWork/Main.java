@@ -1,6 +1,7 @@
 package HomeWork;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,10 +36,23 @@ public class Main {
         System.out.println();
         System.out.println("---------------Работаем с ДАО-----------------------------------");
 
-        Room[] DB=controller.DataBase;
-        //System.out.println(Arrays.toString(param3));
-       // DB[0]=controller.save(param3[2]);
+        Room[] DB=controller.getDao().getDataBase();
+        Date date=new Date();
+        Room room = new Room(13321,456,4,date,"Киев","Киев");
+        Room room1 = new Room(13321,456,4,date,"Москва","Киев");
+        controller.getDao().save(room);
+        controller.getDao().save(room1);
         System.out.println(Arrays.toString(DB));
+//
+//
+//        Room[] Ex=new Room[2];
+//        System.out.println(Arrays.toString(Ex));
+//        Ex[0]=room;
+//        Ex[1]=room1;
+//        System.out.println(Arrays.toString(Ex));
+
+
+//
 
     }
 }
