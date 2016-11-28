@@ -8,7 +8,7 @@ public class DAOImpl implements DAO {
     }
 
     public Room[] getDataBase() {
-        return DataBase;
+        return this.DataBase;
     }
 
     @Override
@@ -42,15 +42,18 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public Room update(long id) {
-        Room room=findById(id);
-        for (int i = 0; i < DataBase.length; i++) {
-            if (DataBase[i].getId() == id)
-                DataBase[i] = room;
-            System.out.println(room.getHotelName() + " обновлено");
-            break;
-        }
+    public Room update(Room room) {
 
+        for (int i = 0; i < DataBase.length; i++) {
+            if (DataBase[i] == null) {
+                continue;
+            } else if (DataBase[i].getId() == room.getId()) {
+                DataBase[i] = room;
+                System.out.println(room.getHotelName() + " обновлено");
+                break;
+            }
+
+        }
         return null;
     }
 
@@ -58,14 +61,20 @@ public class DAOImpl implements DAO {
     public Room findById(long id) {
 
         for (int i = 0; i < DataBase.length; i++) {
-            if (DataBase[i].getId() == id)
+            if (DataBase[i] == null) {
+                continue;
+            } else if (DataBase[i].getId() == id) {
+                System.out.println("Результат поиска: " + DataBase[i].getHotelName());
+
                 return DataBase[i];
-            System.out.println("Результат поиска по ID b " + DataBase[i].getHotelName());
-            break;
+            }
         }
-        System.out.println("По вашему запросу нет результатов");
+
+        System.out.println("Поиск не дал результатов");
+
         return null;
     }
+
 
     @Override
     public Room[] getAll() {
